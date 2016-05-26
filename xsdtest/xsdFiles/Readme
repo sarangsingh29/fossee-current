@@ -1,0 +1,14 @@
+The mxGraph.xsd is create from the XcosFile.xsd.
+
+All the elements of the format 
+<element name="mxXYZ".../> 
+have been included. 
+
+Used the ports.html example to create a graph with high complexity and checked for validity using Scilab function. 
+
+Needed to add following items manually:
+
+1. 
+<element name="mxRectangle".../>
+2.
+attribute name="target" in mxCell element to cope up with the edges. 

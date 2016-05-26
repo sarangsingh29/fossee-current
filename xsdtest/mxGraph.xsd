@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+
+<xs:element name="root">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="mxCell"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+
+<xs:element name="mxUndoManager">
+    <xs:complexType>
+      <xs:attribute name="as" use="required" type="xs:NCName"/>
+    </xs:complexType>
+ </xs:element>
+
+ <xs:element name="mxGraphModel">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="root"/>
+      </xs:sequence>
+      <xs:attribute name="as" use="optional" type="xs:NCName"/>
+    </xs:complexType>
+ </xs:element>
+
+ <xs:element name="mxCell">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="mxGeometry"/>
+      </xs:sequence>
+      <xs:attribute name="as" type="xs:NCName"/>
+      <xs:attribute name="connectable" type="xs:integer"/>
+      <xs:attribute name="edge" type="xs:integer"/>
+      <xs:attribute name="id" use="required"/>
+      <xs:attribute name="parent" type="xs:NMTOKEN"/>
+      <xs:attribute name="source" type="xs:NMTOKEN"/>
+      <xs:attribute name="target" type="xs:NMTOKEN"/>
+      <xs:attribute name="style"/>
+      <xs:attribute name="value"/>
+      <xs:attribute name="vertex" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+
+   <xs:element name="mxPoint">
+    <xs:complexType>
+      <xs:attribute name="as" type="xs:NCName"/>
+      <xs:attribute name="x" type="xs:decimal"/>
+      <xs:attribute name="y" type="xs:decimal"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="mxGeometry">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="mxPoint"/>
+        <xs:element ref="mxRectangle"/>
+      </xs:choice>
+      <xs:attribute name="as" use="required" type="xs:NCName"/>
+      <xs:attribute name="height" type="xs:decimal"/>
+      <xs:attribute name="relative" type="xs:integer"/>
+      <xs:attribute name="width" type="xs:decimal"/>
+      <xs:attribute name="x" type="xs:decimal"/>
+      <xs:attribute name="y" type="xs:decimal"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="mxRectangle">
+  	<xs:complexType>
+	  	<xs:attribute name="width" type="xs:decimal"/>
+	  	<xs:attribute name="height" type="xs:decimal"/>
+	  	<xs:attribute name="as" use="required" type="xs:NCName"/>
+  	</xs:complexType>
+  </xs:element>
+  	
+ </xs:schema>
